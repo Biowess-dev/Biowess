@@ -53,7 +53,7 @@ export default function LicensePage() {
                   <h2 className="text-white text-xl font-bold mt-8 mb-4">3. Attribution Requirement</h2>
                   <p className="mb-4">Any public use, fork, modification, or redistribution of this project or its derivatives must include visible credit to the original author.</p>
                   <p className="mb-4">Example attribution:</p>
-                  <p className="mb-8 p-4 bg-white/5 rounded-lg border border-white/10 font-mono text-sm">"Based on [app] by BIOWESS"</p>
+                  <p className="mb-8 p-4 bg-white/5 rounded-lg border border-white/10 font-mono text-sm">&quot;Based on [app] by BIOWESS&quot;</p>
 
                   <h2 className="text-white text-xl font-bold mt-8 mb-4">4. Ownership</h2>
                   <p className="mb-4">The software and all associated intellectual property remain the exclusive property of the copyright holder.</p>
@@ -63,7 +63,7 @@ export default function LicensePage() {
                   <p className="mb-8">Unless explicitly stated otherwise, any contributions submitted to this project may be incorporated into the project under this same license.</p>
 
                   <h2 className="text-white text-xl font-bold mt-8 mb-4">6. Warranty Disclaimer</h2>
-                  <p className="mb-4 uppercase">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                  <p className="mb-4 uppercase">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
                   <p className="mb-8 uppercase">IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 
                   <h2 className="text-white text-xl font-bold mt-8 mb-4">7. Acceptance</h2>
