@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/wordmark-dark.png" alt="Biowess Wordmark" width="100%" style="border-radius: 4px;" />
+  <img src="./public/wordmark-dark.png" alt="Biowess Wordmark" width="60%" style="border-radius: 4px;" />
 </div>
 
 <br />
