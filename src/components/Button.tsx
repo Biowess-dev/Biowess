@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, MouseEvent } from 'react';
+import Link from 'next/link';
 import styles from './Button.module.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
@@ -34,19 +35,35 @@ export function Button({ variant, children, href, onClick, external, className =
   };
 
   if (href) {
+    if (external || href.startsWith('http')) {
+      return (
+        <a
+          ref={buttonRef as React.RefObject<HTMLAnchorElement>}
+          href={href}
+          className={combinedClassName}
+          onClick={handleInternalClick}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <a
-        ref={buttonRef as React.RefObject<HTMLAnchorElement>}
+      <Link
+        ref={buttonRef as any}
         href={href}
         className={combinedClassName}
-        onClick={handleInternalClick}
+        onClick={handleInternalClick as any}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        {...(props as any)}
       >
         {children}
-      </a>
+      </Link>
     );
   }
 

@@ -124,7 +124,7 @@
     background-image: radial-gradient(circle at 50% 0%, #0d0d0d 0%, #000000 120vw);
     background-repeat: no-repeat;
     color: var(--color-text-tier-3);
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: var(--font-ibm-plex-sans), sans-serif;
     min-height: 100vh;
   }
 
@@ -278,7 +278,7 @@
   }
 
   .type-code {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-ibm-plex-mono), monospace;
     font-size: var(--type-code-size);
     font-weight: var(--type-code-weight);
     line-height: var(--type-code-line-height);
