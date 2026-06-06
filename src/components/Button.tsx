@@ -54,13 +54,13 @@ export function Button({ variant, children, href, onClick, external, className =
 
     return (
       <Link
-        ref={buttonRef as any}
+        ref={buttonRef as React.RefObject<HTMLAnchorElement>}
         href={href}
         className={combinedClassName}
-        onClick={handleInternalClick as any}
-        onMouseMove={handleMouseMove}
+        onClick={handleInternalClick as React.MouseEventHandler<HTMLAnchorElement>}
+        onMouseMove={handleMouseMove as React.MouseEventHandler<HTMLAnchorElement>}
         onMouseLeave={handleMouseLeave}
-        {...(props as any)}
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {children}
       </Link>
