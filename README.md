@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="./public/wordmark-dark.png" alt="Biowess Wordmark" width="100%" style="border-radius: 4px;" />
+</div>
 
-## Getting Started
+<br />
 
-First, run the development server:
+<div align="center">
+
+# Open-Source Medical Educational Software
+**Biowess publishes experimental tools for students and developers building at the intersection of medicine and software.**
+
+[![License](https://img.shields.io/badge/License-Custom_Source--Available_1.0-black.svg)](#)
+[![Status: Active](https://img.shields.io/badge/Status-Active-black.svg)](#)
+[![Framework: Next.js](https://img.shields.io/badge/Framework-Next.js-black.svg)](#)
+
+</div>
+
+---
+
+## ✦ Core Mandate
+
+Biowess is an independent, open-source studio focused on creating non-diagnostic, purely educational medical software. We build experimental tools tailored for medical students, bioinformatics learners, and developers exploring healthcare software systems.
+
+**What we are NOT:**
+- ✖ A startup or SaaS product
+- ✖ A diagnostic tool
+- ✖ A clinical decision support system
+- ✖ A patient data platform
+
+---
+
+## ✦ Published Applications
+
+### [Aletheia](#)
+**Clinical Workstation (Educational)**  
+An open-source educational clinical workstation for simulating patient data workflows. Built to give medical students and clinical software learners a safe sandbox for exploring medical information systems.
+- **Status:** Active
+- **Tags:** `Educational` `Clinical` `Simulation`
+
+### [HematoX](#)
+**Hematology AI Application**  
+A hematology-focused AI educational tool for exploring blood panel interpretation patterns. Designed for medical students and bioinformatics learners interested in the intersection of artificial intelligence and hematology.
+- **Status:** Active
+- **Tags:** `Educational` `Hematology` `AI`
+
+---
+
+## ✦ Technical Architecture
+
+This repository contains the source code for the main Biowess website, built with modern web technologies adhering to a strict, monochrome design system.
+
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS + Custom CSS Variables
+- **Typography:** IBM Plex Sans & IBM Plex Mono
+- **Design Philosophy:** Utilitarian, grayscale-only, glassmorphism layers, and deep focus on typography and layout architecture.
+
+### Getting Started
+
+To run the development server locally:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✦ Disclaimer
 
-## Learn More
+> **IMPORTANT:** All Biowess applications and tools are strictly **non-diagnostic** and intended for **educational purposes only**. 
+> They are not medical devices, do not provide clinical advice, and must never be used for patient care or diagnostic decisions.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  <p>Biowess is an independent project built by a medical student.</p>
+  <p><b>© 2026 Biowess. Custom Source-Available License 1.0.</b></p>
+</div>
