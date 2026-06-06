@@ -1,14 +1,18 @@
-import { HeroSection } from '@/components/HeroSection';
 import { Section } from '@/components/Section';
 import { Container } from '@/components/Container';
 import { SectionHeader } from '@/components/SectionHeader';
 import { AppGrid } from '@/components/AppGrid';
 import { AppCardProps } from '@/components/AppCard';
+import { DisclaimerStrip } from '@/components/DisclaimerStrip';
 import { PageTransition } from '@/components/PageTransition';
-import { AboutPanel } from '@/components/AboutPanel';
-import { FadeInOnScroll } from '@/components/FadeInOnScroll';
+import type { Metadata } from 'next';
 
-const FEATURED_APPS: AppCardProps[] = [
+export const metadata: Metadata = {
+  title: 'Applications | Biowess',
+  description: 'Open-source educational tools. Free to use, free to modify.',
+};
+
+const APPS: AppCardProps[] = [
   {
     title: 'Aletheia',
     subtitle: 'Clinical Workstation',
@@ -29,33 +33,32 @@ const FEATURED_APPS: AppCardProps[] = [
   }
 ];
 
-export default function Home() {
+export default function AppsPage() {
   return (
-    <PageTransition>
-      <HeroSection />
-
-      <FadeInOnScroll delay={100}>
+    <main>
+      <PageTransition>
         <Section tone="primary">
           <Container>
             <div style={{ marginBottom: 'var(--space-8)' }}>
               <SectionHeader
-                eyebrow="Applications"
-                heading="Current Releases"
-                subtext="Two tools are currently available. More in development."
+                eyebrow="Biowess"
+                heading="Applications"
+                subtext="Open-source educational tools. Free to use, free to modify."
+                align="left"
               />
             </div>
-            <AppGrid apps={FEATURED_APPS} showPlaceholders={false} />
-          </Container>
-        </Section>
-      </FadeInOnScroll>
 
-      <FadeInOnScroll delay={100}>
-        <Section tone="secondary">
-          <Container>
-            <AboutPanel />
+            <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: 'var(--space-4)' }}>
+              <span className="type-small" style={{ color: 'var(--color-text-tier-1)' }}>
+                More applications in development. ~10 tools planned over the next 6–12 months.
+              </span>
+            </div>
+
+            <AppGrid apps={APPS} showPlaceholders={true} />
           </Container>
         </Section>
-      </FadeInOnScroll>
-    </PageTransition>
+        <DisclaimerStrip />
+      </PageTransition>
+    </main>
   );
 }

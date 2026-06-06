@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerLeft {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.headerCenter {
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--color-text-tier-1);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-3, 0.75rem);
+  position: relative;
+}
+
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-top: var(--space-3, 0.75rem);
+}
+
+.headingWithSubtext {
+  margin-bottom: var(--space-4, 1rem);
+}
+
+.subtext {
+  color: var(--color-text-tier-2);
+  max-width: 520px;
+}
+
+.headerCenter .subtext {
+  margin: 0 auto;
+}

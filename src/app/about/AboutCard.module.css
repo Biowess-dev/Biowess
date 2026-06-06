@@ -1,0 +1,75 @@
+.card {
+  background: var(--glass-bg-base);
+  border: 1px solid var(--glass-border-base);
+  border-radius: 0px;
+  padding: var(--space-8);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: var(--glass-backdrop-base);
+  -webkit-backdrop-filter: var(--glass-backdrop-base);
+  box-shadow: var(--glass-shadow-base);
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: var(--space-6);
+  }
+}
+
+/* Edge light for the top of the glass card */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.0),
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.3) 80%,
+    rgba(255, 255, 255, 0.0)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Mouse tracking light effect */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 400ms ease;
+  z-index: 2;
+}
+
+.card:hover::after {
+  opacity: 1;
+  transition: opacity 150ms ease;
+}
+
+.contentLayer {
+  position: relative;
+  z-index: 3;
+}
+
+.card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-4px) scale(1.002) rotateX(calc(var(--tilt-y, 0) * 2deg)) rotateY(calc(var(--tilt-x, 0) * 2deg));
+  z-index: var(--z-card);
+}

@@ -1,0 +1,37 @@
+/*
+ * PageTransition animates all direct children on page load EXCEPT
+ * [data-fade-scroll] wrappers, which self-manage their own opacity/transform
+ * via IntersectionObserver (FadeInOnScroll component).
+ */
+
+.wrapper > *:not([data-fade-scroll]) {
+  opacity: 0;
+  transform: translateY(8px);
+  transition-property: opacity, transform;
+  transition-duration: var(--duration-enter);
+  transition-timing-function: var(--ease-decelerate);
+}
+
+.wrapper.mounted > *:not([data-fade-scroll]) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wrapper > *:not([data-fade-scroll]):nth-child(1) { transition-delay:   0ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(2) { transition-delay:  60ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(3) { transition-delay: 120ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(4) { transition-delay: 180ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(5) { transition-delay: 240ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(6) { transition-delay: 300ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(7) { transition-delay: 360ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(8) { transition-delay: 420ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(9) { transition-delay: 480ms; }
+.wrapper > *:not([data-fade-scroll]):nth-child(10) { transition-delay: 540ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper > *:not([data-fade-scroll]) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

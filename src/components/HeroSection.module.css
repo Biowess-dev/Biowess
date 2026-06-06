@@ -1,0 +1,114 @@
+/* ── Hero Section ──────────────────────────────────────────── */
+
+/* Permanent backlit-panel glow — hero headline only */
+.headline {
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.12),
+    0 0 80px rgba(255, 255, 255, 0.05);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--space-12);
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* All direct content children sit above the dot grid */
+.inner {
+  position: relative;
+  z-index: var(--z-card);
+  padding: var(--space-8);
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.08),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 400ms ease;
+  z-index: 2;
+}
+
+.inner:hover::after {
+  opacity: 1;
+  transition: opacity 150ms ease;
+}
+
+/* ── Stagger animation ─────────────────────────────────────── */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animItem {
+  opacity: 0;
+  animation: heroFadeUp var(--duration-enter) var(--ease-decelerate) forwards;
+}
+
+/* Delay increments: 80ms per child */
+.animItem:nth-child(1) { animation-delay:   0ms; }
+.animItem:nth-child(2) { animation-delay:  80ms; }
+.animItem:nth-child(3) { animation-delay: 160ms; }
+.animItem:nth-child(4) { animation-delay: 240ms; }
+.animItem:nth-child(5) { animation-delay: 320ms; }
+
+/* ── Divider spacing ───────────────────────────────────────── */
+
+.dividerWrap {
+  margin: var(--space-6) 0;
+}
+
+/* ── CTA row ───────────────────────────────────────────────── */
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ── Reduced motion: instant, no fade ─────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .animItem {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .eyebrow {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .ctaRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ctaRow > * {
+    width: 100%;
+    justify-content: center;
+  }
+}

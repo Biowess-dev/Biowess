@@ -2,26 +2,293 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* ── Typography scale ──────────────────────────────────── */
+    --type-hero-size: clamp(40px, 4.4vw + 1.5rem, 80px);
+    --type-hero-weight: 600;
+    --type-hero-line-height: 1.0;
+    --type-hero-letter-spacing: -0.03em;
+
+    --type-h1-size: clamp(28px, 2.6vw + 1.1rem, 52px);
+    --type-h1-weight: 600;
+    --type-h1-line-height: 1.1;
+    --type-h1-letter-spacing: -0.02em;
+
+    --type-h2-size: clamp(20px, 1.3vw + 0.95rem, 32px);
+    --type-h2-weight: 500;
+    --type-h2-line-height: 1.2;
+    --type-h2-letter-spacing: -0.01em;
+
+    --type-h3-size: 18px;
+    --type-h3-weight: 500;
+    --type-h3-line-height: 1.3;
+    --type-h3-letter-spacing: 0;
+
+    --type-body-size: 15px;
+    --type-body-weight: 400;
+    --type-body-line-height: 1.6;
+    --type-body-letter-spacing: 0;
+
+    --type-small-size: 13px;
+    --type-small-weight: 400;
+    --type-small-line-height: 1.5;
+    --type-small-letter-spacing: 0.01em;
+
+    --type-label-size: 11px;
+    --type-label-weight: 500;
+    --type-label-line-height: 1.4;
+    --type-label-letter-spacing: 0.08em;
+
+    --type-code-size: 13px;
+    --type-code-weight: 400;
+    --type-code-line-height: 1.6;
+    --type-code-letter-spacing: 0;
+
+    /* ── Space scale (4px base × 2 progression) ────────────── */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  24px;
+    --space-6:  32px;
+    --space-7:  40px;
+    --space-8:  48px;
+    --space-9:  64px;
+    --space-10: 80px;
+    --space-11: 96px;
+    --space-12: 128px;
+
+    /* ── Shape ──────────────────────────────────────────────── */
+    --radius-sm: 0px;
+    --radius-md: 0px;
+    --radius-lg: 0px;
+
+    /* ── Z-Index ────────────────────────────────────────────── */
+    --z-base:   0;
+    --z-card:   1;
+    --z-sticky: 100;
+    --z-drawer: 200;
+    --z-overlay: 190;
+    --z-modal: 300;
+
+    /* ── Motion ─────────────────────────────────────────────── */
+    --duration-fast:   150ms;
+    --duration-base:   250ms;
+    --duration-enter:  400ms;
+    --duration-slow:   600ms;
+    --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+
+    /* ── Semantic color tokens ───────────────────────────────── */
+    --color-text-tier-1: #a3a3a3; /* labels, eyebrows, metadata, badges */
+    --color-text-tier-2: #cccccc; /* secondary body, card descriptions, footer body */
+    --color-text-tier-3: #eaeaea; /* primary body, nav links at rest, card subtitles */
+    --color-text-tier-4: #ffffff; /* headlines, card titles, hero text, active states */
+    --color-border:         #111111;
+    --color-border-hover:   #333333;
+    --color-surface-1:      #0a0a0a;
+    --color-surface-2:      #111111;
+    --color-surface-3:      #1a1a1a;
+    
+    /* ── Real Glass Primitives ───────────────────────────────── */
+    --glass-bg-base: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --glass-bg-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+    --glass-bg-active: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.06) 100%);
+
+    --glass-backdrop-base: blur(24px) saturate(120%) brightness(110%);
+    --glass-backdrop-heavy: blur(48px) saturate(140%) brightness(120%);
+    
+    --glass-border-base: rgba(255, 255, 255, 0.08);
+    --glass-border-highlight: rgba(255, 255, 255, 0.15);
+    
+    --glass-shadow-base: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.2), 
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05), 
+      inset 0 -1px 1px rgba(0, 0, 0, 0.8),
+      0 8px 32px -4px rgba(0, 0, 0, 0.5),
+      0 4px 16px -2px rgba(0, 0, 0, 0.3);
+      
+    --glass-shadow-hover: 
+      inset 0 1px 2px rgba(255, 255, 255, 0.3), 
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1), 
+      inset 0 -1px 1px rgba(0, 0, 0, 0.8),
+      0 16px 48px -4px rgba(0, 0, 0, 0.6),
+      0 8px 24px -4px rgba(0, 0, 0, 0.4);
+
+    --shadow-surface:       0 24px 80px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.6);
+  }
+
+  html {
+    background-color: #000000;
+    background-image: radial-gradient(circle at 50% 0%, #0d0d0d 0%, #000000 120vw);
+    background-repeat: no-repeat;
+    color: var(--color-text-tier-3);
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── Atmospheric ceiling glow ──────────────────────────────
+     A single implied light source ~600px above the viewport.
+     Fixed so it never scrolls. pointer-events: none so it
+     never interferes with interaction. The glow must not be
+     consciously noticed — only felt.
+  ──────────────────────────────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--glow-opacity, 1);
+    transition: opacity 120ms linear;
+    background: radial-gradient(
+      ellipse 80% 60% at 50% -10%,
+      rgba(255, 255, 255, 0.025) 0%,
+      transparent 60%
+    );
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  p {
+    margin: 0;
+    max-width: 680px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass-panel {
+    background: var(--glass-bg-base);
+    backdrop-filter: var(--glass-backdrop-base);
+    -webkit-backdrop-filter: var(--glass-backdrop-base);
+    border: 1px solid var(--glass-border-base);
+    box-shadow: var(--glass-shadow-base);
+    border-radius: var(--radius-md);
+  }
+
+  .surface-shadow {
+    box-shadow: var(--shadow-surface);
+  }
+
+  /* ── Edge illumination ───────────────────────────────────────
+     Simulates light catching on the top face of a raised surface.
+     Applied as a ::before pseudo on primary surfaces only.
+     The gradient fades at corners for a natural, centred catch.
+  ──────────────────────────────────────────────────────── */
+  .edge-light-top {
+    position: relative;
+  }
+  .edge-light-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.18) 30%,
+      rgba(255, 255, 255, 0.18) 70%,
+      transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Bottom-edge light for the nav bar */
+  .nav-edge-light {
+    position: relative;
+  }
+  .nav-edge-light::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .type-hero {
+    font-size: var(--type-hero-size);
+    font-weight: var(--type-hero-weight);
+    line-height: var(--type-hero-line-height);
+    letter-spacing: var(--type-hero-letter-spacing);
+  }
+
+  .type-h1 {
+    font-size: var(--type-h1-size);
+    font-weight: var(--type-h1-weight);
+    line-height: var(--type-h1-line-height);
+    letter-spacing: var(--type-h1-letter-spacing);
+  }
+
+  .type-h2 {
+    font-size: var(--type-h2-size);
+    font-weight: var(--type-h2-weight);
+    line-height: var(--type-h2-line-height);
+    letter-spacing: var(--type-h2-letter-spacing);
+  }
+
+  .type-h3 {
+    font-size: var(--type-h3-size);
+    font-weight: var(--type-h3-weight);
+    line-height: var(--type-h3-line-height);
+    letter-spacing: var(--type-h3-letter-spacing);
+  }
+
+  .type-body {
+    font-size: var(--type-body-size);
+    font-weight: var(--type-body-weight);
+    line-height: var(--type-body-line-height);
+    letter-spacing: var(--type-body-letter-spacing);
+  }
+
+  .type-small {
+    font-size: var(--type-small-size);
+    font-weight: var(--type-small-weight);
+    line-height: var(--type-small-line-height);
+    letter-spacing: var(--type-small-letter-spacing);
+  }
+
+  .type-label {
+    font-size: var(--type-label-size);
+    font-weight: var(--type-label-weight);
+    line-height: var(--type-label-line-height);
+    letter-spacing: var(--type-label-letter-spacing);
+    text-transform: uppercase;
+  }
+
+  .type-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--type-code-size);
+    font-weight: var(--type-code-weight);
+    line-height: var(--type-code-line-height);
+    letter-spacing: var(--type-code-letter-spacing);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
