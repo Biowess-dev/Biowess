@@ -31,11 +31,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.webp",
   },
-  description: "Open-source medical educational software.",
   verification: {
     google: "OrEOuVWvJXX95D6xBdhiidK0M4kjK3RwzpgrU2Q-ytg",
   },
 };
+
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
