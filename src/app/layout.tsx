@@ -28,9 +28,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  icons: {
-    icon: "/icon.webp",
-  },
   verification: {
     google: "OrEOuVWvJXX95D6xBdhiidK0M4kjK3RwzpgrU2Q-ytg",
   },
