@@ -15,7 +15,22 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Biowess",
+  title: {
+    default: "Biowess",
+    template: "%s | Biowess"
+  },
+  description: "Open-source medical educational software.",
+  openGraph: {
+    title: "Biowess",
+    description: "Open-source medical educational software.",
+    url: "https://biowess-dev.github.io/Biowess",
+    siteName: "Biowess",
+    locale: "en_US",
+    type: "website",
+  },
+  icons: {
+    icon: "/icon.webp",
+  },
   description: "Open-source medical educational software.",
   verification: {
     google: "OrEOuVWvJXX95D6xBdhiidK0M4kjK3RwzpgrU2Q-ytg",
